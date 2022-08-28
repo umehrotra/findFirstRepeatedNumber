@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google interview question - 2</title>
+</head>
+
+<body>
+    <script>
+        // Q Given an array = [2,5,1,2,3,5,1,2,4] (should return 2) find first number which is repeated
+        // eg arr= [2,1,1,2,3,5,1,2,4] (should return 1)
+        // eg arr = [2,3,4,5] (should return undefined)
+
+        // Method - 1
+        function repeatNumber(input) {
+            for (let i = 0; i < input.length; i++) {
+                for (let j = i + 1; j < input.length; j++) {
+                    if (input[i] === input[j]) {
+                        return input[i]
+                    }
+                }
+            }
+            return undefined
+        }
+        // let output = repeatNumber([2,5,1,2,3,5,1,2,4])
+        // let output = repeatNumber([2, 2, 1])
+        // console.log(output)
+        // O(n^2) - time complexity
+
+        // Method - 2
+        function repeatNumber2(input) {
+            let map = {};
+            for (let i = 0; i < input.length; i++) {
+                if (map[input[i]]!== undefined) {
+                    return input[i]
+                } else {
+                    map[input[i]] = i;
+                }
+                console.log(map)
+            }
+            return undefined;
+        }
+        let output2 = repeatNumber2([2, 5, 5, 2, 3, 5, 1, 2, 4])
+        console.log(output2)
+        //O(n) - time complexity
+
+    </script>
+</body>
+
+</html>
